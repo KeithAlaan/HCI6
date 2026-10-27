@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keith Marten Alaan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="menubar" role="toolbar" aria-label="System menu">
+  <button class="brand" id="mbBrand">Keith OS</button>
+  <button id="mbShop">⚡ Shop</button>
+  <button id="mbSparks">Sparks: on</button>
+  <button id="mbWall">Wallpaper</button>
+  <button id="mbTidy">Tidy up</button>
+  <button id="mbHelp">Help</button>
+  <span class="sp"></span>
+  <span class="music" role="group" aria-label="Music controls">
+    <button id="mbMusic" aria-label="Play or pause music" title="Play or pause music">🔊</button>
+    <input id="vol" type="range" min="0" max="100" value="40" aria-label="Music volume" title="Music volume">
+  </span>
+  <span class="pill" id="mbTimer" title="Time you have spent on this page">On site 0:00</span>
+  <span id="mbClock" aria-label="Current time"></span>
+</div>
+
+<main class="desktop" id="desktop">
+  <nav class="icons" id="icons" aria-label="Desktop icons"></nav>
+  <p class="hint" id="hint">Double-click an icon to open it. Start with ⚡ Drop N' Puff!</p>
+
+  <section class="win c-yel" id="w-welcome" data-x="150" data-y="24" aria-label="Welcome" hidden>
+    <header class="tb"><span class="tt">welcome.txt</span><span class="wb"><button class="min" aria-label="Minimize">_</button><button class="cls" aria-label="Close">×</button></span></header>
+    <div class="wc">
+      <p class="small">Welcome to my desktop. My name is</p>
+      <h1 class="name">Keith Marten Alaan</h1>
+      <p class="greet" id="greet" aria-live="off"></p>
+      <p id="tag"></p>
+      <div class="row">
+        <a class="btn" id="mailTop">Email me</a>
+        <button class="btn" id="seePhoto">See my photo</button>
+        <button class="btn dark" id="seeShop">⚡ My shop</button>
+        <button class="btn" id="hi">Say hi</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="win c-pink" id="w-photo" data-x="right" data-y="60" aria-label="keith.jpg" hidden>
+    <header class="tb"><span class="tt">keith.jpg</span><span class="wb"><button class="min" aria-label="Minimize">_</button><button class="cls" aria-label="Close">×</button></span></header>
+    <div class="wc">
+      <div class="frame" id="frame" role="group" aria-roledescription="carousel" aria-label="Photos of Keith">
+        <span class="ini" id="ini">KA</span>
+        <div id="slides"></div>
+        <button class="sl prev" id="prev" aria-label="Previous photo">‹</button>
+        <button class="sl next" id="next" aria-label="Next photo">›</button>
+      </div>
+      <div class="dots" id="dots"></div>
+      <p class="small cap" id="cap">Keith Marten Alaan</p>
+    </div>
+  </section>
+
+  <section class="win c-mint" id="w-about" aria-label="About me" hidden>
+    <header class="tb"><span class="tt">about-me.txt</span><span class="wb"><button class="min" aria-label="Minimize">_</button><button class="cls" aria-label="Close">×</button></span></header>
+    <div class="wc">
+      <p id="about"></p>
+      <p class="fact" id="fact" aria-live="polite">Press the button for a random fact.</p>
+      <button class="btn" id="nf">Show another fact</button>
+    </div>
+  </section>
+
+  <section class="win c-sky" id="w-skills" aria-label="Skills" hidden>
+    <header class="tb"><span class="tt">skills.exe</span><span class="wb"><button class="min" aria-label="Minimize">_</button><button class="cls" aria-label="Close">×</button></span></header>
+    <div class="wc"><div id="skills"></div></div>
+  </section>
+
+  <section class="win c-lil" id="w-hobbies" aria-label="Hobbies and interests" hidden>
+    <header class="tb"><span class="tt">hobbies.app</span><span class="wb"><button class="min" aria-label="Minimize">_</button><button class="cls" aria-label="Close">×</button></span></header>
+    <div class="wc">
+      <p class="small">Pick one to learn more.</p>
+      <div class="chips" id="chips"></div>
+      <div class="detail" id="detail" aria-live="polite">Pick a topic above.</div>
+    </div>
+  </section>
+
+  <section class="win c-yel" id="w-game" aria-label="Catch the stars game" hidden>
+    <header class="tb"><span class="tt">catch-stars.game</span><span class="wb"><button class="min" aria-label="Minimize">_</button><button class="cls" aria-label="Close">×</button></span></header>
+    <div class="wc">
+      <div class="gbar"><span>Score <b id="score">0</b></span><span>Time <b id="time">15</b></span><span>Best <b id="best">0</b></span><button class="btn" id="start">Start game</button></div>
+      <div class="arena" id="arena"><button class="star" id="star" aria-label="Star target">★</button></div>
+    </div>
+  </section>
+
+  <section class="win c-pink" id="w-truths" aria-label="Two truths and a lie" hidden>
+    <header class="tb"><span class="tt">truths.quiz</span><span class="wb"><button class="min" aria-label="Minimize">_</button><button class="cls" aria-label="Close">×</button></span></header>
+    <div class="wc">
+      <p class="small">Two of these are true. One is a lie. Which one?</p>
+      <div id="opts"></div><p id="fb" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section class="win c-mint" id="w-projects" aria-label="Projects" hidden>
+    <header class="tb"><span class="tt">projects/</span><span class="wb"><button class="min" aria-label="Minimize">_</button><button class="cls" aria-label="Close">×</button></span></header>
+    <div class="wc"><div id="proj"></div></div>
+  </section>
+
+  <section class="win c-term" id="w-term" aria-label="Terminal" hidden>
+    <header class="tb"><span class="tt">terminal</span><span class="wb"><button class="min" aria-label="Minimize">_</button><button class="cls" aria-label="Close">×</button></span></header>
+    <div class="wc term" id="termBox">
+      <div id="tout" aria-live="polite"></div>
+      <label class="tline"><span>keith@os:~$</span><input id="tin" type="text" autocomplete="off" spellcheck="false" aria-label="Type a command"></label>
+    </div>
+  </section>
+
+  <section class="win c-dnp" id="w-shop" aria-label="Drop N' Puff vape shop" hidden>
+    <header class="tb"><span class="tt">dropnpuff.biz</span><span class="wb"><button class="min" aria-label="Minimize">_</button><button class="cls" aria-label="Close">×</button></span></header>
+    <div class="wc">
+      <img class="dnplogo" src="DNP.jpg" alt="DROP N' PUFF logo: distressed yellow lettering with a lightning bolt on black">
+      <p class="shoptag" id="shopTag"></p>
+      <p id="shopAbout"></p>
+      <ul class="perks" id="perks"></ul>
+      <p class="notice" id="shopNotice"></p>
+      <div class="row">
+        <button class="btn dark" id="goBr">Find a branch</button>
+        <button class="btn dark" id="goStore">Order online</button>
+        <button class="btn dark" id="goVibe">Find my vibe</button>
+        <button class="btn dark" id="goZap">Zap reflex</button>
+        <button class="btn dark" id="goSlots">Puff slots</button>
+        <a class="btn" id="mailShop">Message the shop</a>
+        <a class="btn" id="fbMe">My Facebook</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="win c-dnp" id="w-branches" aria-label="Drop N' Puff branches" hidden>
+    <header class="tb"><span class="tt">branches.map</span><span class="wb"><button class="min" aria-label="Minimize">_</button><button class="cls" aria-label="Close">×</button></span></header>
+    <div class="wc">
+      <p class="big" id="brTitle"></p>
+      <p class="small" id="brClock" aria-live="polite"></p>
+      <div class="row"><button class="btn dark" id="brPick">Pick a branch for me</button></div>
+      <div id="brList"></div>
+    </div>
+  </section>
+
+  <section class="win c-dnp" id="w-vibe" aria-label="Vibe finder" hidden>
+    <header class="tb"><span class="tt">vibe-finder.app</span><span class="wb"><button class="min" aria-label="Minimize">_</button><button class="cls" aria-label="Close">×</button></span></header>
+    <div class="wc">
+      <p class="small">How are you feeling right now? Pick a mood to get a flavor family to ask about.</p>
+      <div class="chips" id="vibeBtns"></div>
+      <div class="detail" id="vibeOut" aria-live="polite">Pick a mood above.</div>
+    </div>
+  </section>
+
+  <section class="win c-dnp" id="w-zap" aria-label="Zap reflex game" hidden>
+    <header class="tb"><span class="tt">zap-reflex.game</span><span class="wb"><button class="min" aria-label="Minimize">_</button><button class="cls" aria-label="Close">×</button></span></header>
+    <div class="wc">
+      <div class="gbar"><span>Last <b id="zlast">-</b> ms</span><span>Best <b id="zbest">-</b> ms</span></div>
+      <button class="zap" id="zapBtn">Click to start</button>
+      <p class="small cap" id="zmsg" aria-live="polite">When the box turns yellow, click as fast as you can.</p>
+    </div>
+  </section>
+
+  <section class="win c-dnp" id="w-slots" aria-label="Puff slots game" hidden>
+    <header class="tb"><span class="tt">puff-slots.game</span><span class="wb"><button class="min" aria-label="Minimize">_</button><button class="cls" aria-label="Close">×</button></span></header>
+    <div class="wc">
+      <div class="gbar"><span>Points <b id="pts">0</b></span><span>Best <b id="bestPts">0</b></span></div>
+      <div class="reels" aria-hidden="true"><div class="reel">⚡</div><div class="reel">☁️</div><div class="reel">🍓</div></div>
+      <p class="fb2" id="slotMsg" aria-live="polite">Three matching symbols win big. Three bolts win the most. Just for fun, points only.</p>
+      <div class="row"><button class="btn dark" id="spin">Spin</button></div>
+    </div>
+  </section>
+
+  <section class="win c-dnp" id="w-store" aria-label="DROP N' PUFF online store" hidden>
+    <header class="tb"><span class="tt">store.dropnpuff</span><span class="wb"><button class="min" aria-label="Minimize">_</button><button class="cls" aria-label="Close">×</button></span></header>
+    <div class="wc">
+      <p class="big">DROP N' PUFF</p>
+      <p class="small">Pick your gear, add it to the cart, then check out. Adults 18+ only.</p>
+      <div id="kuItems"></div>
+      <h3 class="subh">Your cart</h3>
+      <div id="kuCart" aria-live="polite"></div>
+      <div id="kuForm" hidden>
+        <label class="fld"><span>Your name</span><input id="kuName" type="text" autocomplete="name"></label>
+        <label class="fld"><span>Pickup branch</span><select id="kuBranch"></select></label>
+        <label class="fld"><span>Payment</span><select id="kuPay"><option>Pay on pickup</option><option>Mobile wallet</option><option>Card</option></select></label>
+        <label class="chk"><input type="checkbox" id="kuAge"> I confirm I am 18 or older</label>
+        <button class="btn" id="kuPlace">Place order</button>
+      </div>
+      <p class="fb2" id="kuMsg" aria-live="polite"></p>
+      <p class="small cap">Demo checkout. No real payment is taken.</p>
+    </div>
+  </section>
+
+  <section class="win c-mint" id="w-biz" aria-label="Business calculator" hidden>
+    <header class="tb"><span class="tt">biz-calc.exe</span><span class="wb"><button class="min" aria-label="Minimize">_</button><button class="cls" aria-label="Close">×</button></span></header>
+    <div class="wc">
+      <p class="small">Type your numbers. Totals update as you type.</p>
+      <div class="bizgrid" id="bizForm"></div>
+      <div id="bizOut" aria-live="polite"></div>
+      <div class="row"><button class="btn" id="bizReset">Clear all</button></div>
+    </div>
+  </section>
+
+  <section class="win c-sky" id="w-contact" aria-label="Contact" hidden>
+    <header class="tb"><span class="tt">contact.mail</span><span class="wb"><button class="min" aria-label="Minimize">_</button><button class="cls" aria-label="Close">×</button></span></header>
+    <div class="wc">
+      <p class="big">Let’s build something together.</p>
+      <a class="mailbig" id="mail"></a>
+      <div class="row"><a class="btn" id="mail2">Open email app</a><button class="btn" id="copy">Copy email</button>
+        <a class="btn" id="fbMe2">My Facebook</a></div>
+    </div>
+  </section>
+</main>
+
+<div class="taskbar" id="taskbar" aria-label="Open windows"></div>
+<canvas id="fx" aria-hidden="true"></canvas>
+<div class="flash" id="flash" aria-hidden="true">⚡</div>
+<div class="toast" id="toast" role="status"></div>
+<audio id="bgm" src="music.mp3" loop preload="auto"></audio>
+<script src="script.js"></script>
+</body>
+</html>
